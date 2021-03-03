@@ -1,6 +1,5 @@
 import React from "react";
-import "../style.css"
-import ContactCard from "./ContactCard";
+import Product from "./Product";
 function MyApp()
 {
   return(

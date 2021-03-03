@@ -1,5 +1,5 @@
 import React from "react";
-function ContactCard(props)
+function Product(props)
 {
     console.log(props)
     return(
@@ -13,4 +13,4 @@ function ContactCard(props)
   
     )
 }
-export default ContactCard;
+export default Product;
