@@ -1,30 +1,35 @@
 import React, { Component } from "react";
-
+import Conditional from "./Conditional"
 class MyApp extends React.Component{
       constructor()
       {
             super();
             this.state={
-                  count:0
+                  Logged:true
             }
             this.handleClick=this.handleClick.bind(this)
       }
-      handleClick(){
-           
-            this.setState(prevState=>{
+      
+      
+      handleClick()
+      {
+            
+            this.setState(prevState =>{
                   return{
-                       count: prevState.count +1 
+                        Logged:!prevState.Logged
                   }
-                  })
+            })
+      
       }
+      
       render()
       {
             return(
                   <div>
-                        <h1>{this.state.count}</h1>
-                        <button onClick={this.handleClick}>Click me</button>
+                        <button onClick={this.handleClick}>{this.state.Logged?"Log out":"Log in"}</button>
+           
                   </div>
-            )
+                   )
       }
      
 }
