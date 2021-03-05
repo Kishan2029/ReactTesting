@@ -1,33 +1,35 @@
-import React, { Component } from "react";
-import Conditional from "./Conditional"
+import React from "react";
+//import Conditional from "./Conditional"
 class MyApp extends React.Component{
       constructor()
       {
             super();
             this.state={
-                  Logged:true
+                  loading:false,
+                  character:{}
             }
-            this.handleClick=this.handleClick.bind(this)
-      }
-      
-      
-      handleClick()
-      {
             
-            this.setState(prevState =>{
-                  return{
-                        Logged:!prevState.Logged
-                  }
-            })
-      
       }
+      
+      componentDidMount(){
+            this.setState({loading : true })
+            fetch("https://swapi.dev/api/people/10")
+                  .then(response => response.json())
+                  .then(data => {
+                        this.setState({
+                              loading:false,
+                              character:data
+                        })
+                  })
+      }
+     
       
       render()
       {
+            const text=this.state.loading ? "Loading...":this.state.character.name
             return(
                   <div>
-                        <button onClick={this.handleClick}>{this.state.Logged?"Log out":"Log in"}</button>
-           
+                        <h1>{text}</h1>
                   </div>
                    )
       }
